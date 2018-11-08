@@ -32,7 +32,7 @@ lint:
 		echo "^ - Lint errors!" && echo && exit 1; \
 	fi
 
-deps:
+deps: tools
 	$(GOGET) -v ./...
 
 view-covered:
