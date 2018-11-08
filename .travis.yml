@@ -13,6 +13,7 @@ matrix:
   
 install:
   - if [[ "${GO111MODULE}" = "on" ]]; then go mod download; else make deps; fi
+  - if [[ "${GO111MODULE}" = "on" ]]; then make tools; fi
 
 script:
   - make lint
