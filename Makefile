@@ -40,7 +40,7 @@ view-covered:
 	$(GOCMD) tool cover -html=cover.out
 
 tools:
-$	(GOGET) github.com/stretchr/testify/assert
+	$(GOGET) github.com/stretchr/testify/assert
 	$(GOGET) golang.org/x/lint/golint
 	$(GOGET) golang.org/x/tools/cmd/goimports
 
