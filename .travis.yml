@@ -5,8 +5,14 @@ go:
   - 1.10.x
   - 1.11.x
 
-before_install:
-  - make deps
+matrix:
+  fast_finish: true
+  include:
+  - go: 1.11.x
+    env: GO111MODULE=on
+  
+install:
+  - if [[ "${GO111MODULE}" = "on" ]]; then go mod download; else make deps; fi
 
 script:
   - make lint
