@@ -13,6 +13,7 @@ require (
 	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/pkg/errors v0.8.0
 	github.com/satori/go.uuid v1.2.0
+	github.com/stretchr/objx v0.1.1 // indirect
 	github.com/stretchr/testify v1.2.2
 	github.com/swaggo/gin-swagger v1.0.0
 	github.com/ugorji/go/codec v0.0.0-20181022190402-e5e69e061d4f // indirect
