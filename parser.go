@@ -589,19 +589,20 @@ func (parser *Parser) parseTypeExpr(pkgName, typeName string, typeExpr ast.Expr)
 }
 
 type structField struct {
-	name         string
-	schemaType   string
-	arrayType    string
-	formatType   string
-	isRequired   bool
-	crossPkg     string
-	exampleValue interface{}
-	maximum      *float64
-	minimum      *float64
-	maxLength    *int64
-	minLength    *int64
-	enums        []interface{}
-	defaultValue interface{}
+	name             string
+	schemaType       string
+	arrayType        string
+	formatType       string
+	isRequired       bool
+	crossPkg         string
+	exampleValue     interface{}
+	descriptionValue string
+	maximum          *float64
+	minimum          *float64
+	maxLength        *int64
+	minLength        *int64
+	enums            []interface{}
+	defaultValue     interface{}
 }
 
 func (parser *Parser) parseStruct(pkgName string, field *ast.Field) (properties map[string]spec.Schema) {
@@ -857,6 +858,9 @@ func (parser *Parser) parseField(field *ast.Field) *structField {
 	}
 	if exampleTag := structTag.Get("example"); exampleTag != "" {
 		structField.exampleValue = defineTypeOfExample(structField.schemaType, structField.arrayType, exampleTag)
+	}
+	if descriptionTag := structTag.Get("description"); descriptionTag != "" {
+		structField.descriptionValue = descriptionTag
 	}
 	if formatTag := structTag.Get("format"); formatTag != "" {
 		structField.formatType = formatTag
